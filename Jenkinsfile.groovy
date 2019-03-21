@@ -22,7 +22,7 @@ node {
             sh "ssh    ec2-user@${IP}      sudo mv  /home/ec2-user/*  /flaskex/"
         }
         catch(exc){
-            sh "Folders moved"
+            sh "echo Folders moved"
         }
     }
     stage("Install requirements"){
