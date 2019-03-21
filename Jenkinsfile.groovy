@@ -7,7 +7,12 @@ node {
         git 'https://github.com/farrukh90/Flaskex.git'
     }
     stage("Run App"){
-        sh "ssh    ec2-user@${IP}       sudo mkdir  /flaskex 2> /dev/null"
+        try{
+            sh "ssh    ec2-user@${IP}       sudo mkdir  /flaskex 2> /dev/null"
+        }
+        catch(exc){
+            sh "echo folder exist"
+        }
     }
     stage("Copy files"){
         sh "scp -r *   ec2-user@${IP}:/home/ec2-user/"
