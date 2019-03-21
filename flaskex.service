@@ -1,0 +1,11 @@
+[Unit]
+Description=Dummy Service
+After=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python /flaskex/app.py
+StandardInput=tty-force
+
+[Install]
+WantedBy=multi-user.target
