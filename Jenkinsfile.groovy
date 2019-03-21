@@ -19,7 +19,7 @@ node {
         sh "ssh    ec2-user@${IP}      sudo pip install -r /flaskex/requirements.txt"
     }
     stage("move service to /etc"){
-        sh "ssh    ec2-user@${IP}      sudo /flaskex/flaskex.service /etc/systemd/system"
+        sh "ssh    ec2-user@${IP}      sudo mv /flaskex/flaskex.service /etc/systemd/system"
     }
     stage("Start service"){
         sh "ssh    ec2-user@${IP}       sudo systemctl start flaskex"
